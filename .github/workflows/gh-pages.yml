@@ -1,0 +1,36 @@
+name: Build and publish to Github Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Set up python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.6
+
+      - name: Install python dependencies
+        run: |
+          pip3 install setuptools
+          pip3 install sphinx sphinx-rtd-theme m2r2
+
+      - name: Build sphinx doc
+        run: |
+          cd docs && make html
+
+      - name: Publish to Github Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: docs/build/html
