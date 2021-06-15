@@ -1,30 +1,26 @@
-name: Build and publish to Github Pages
+name: Build and publishto Github Pages
 
 on:
-  push:
-    branches:
-      - main
+  release:
+    types: [published]
 
 jobs:
   build-and-publish:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          persist-credentials: false
 
-      - name: Set up python
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.6
-
-      - name: Install python dependencies
+          python-version: '3.x'
+      - name: Install dependencies
         run: |
-          pip3 install setuptools
-          pip3 install sphinx sphinx-rtd-theme m2r2
+          python -m pip install --upgrade pip
+          pip install sphinx sphinx-rtd-theme m2r2
 
-      - name: Build sphinx doc
+      - name: Build doc
         run: |
           cd docs && make html
 

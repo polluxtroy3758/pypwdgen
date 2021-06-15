@@ -1,6 +1,6 @@
 # pypwdgen
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/polluxtroy3758/pypwdgen/Publish%20pypwdgen%20to%20PyPI?style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/polluxtroy3758/pypwdgen/Build%20Python%20Package?style=flat-square)
 ![PyPI](https://img.shields.io/pypi/v/pypwdgen?style=flat-square)
 
 Complex pasword generator
