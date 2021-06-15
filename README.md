@@ -10,7 +10,6 @@ Complex pasword generator
 Python 3.6 minimum is required to use the `secrets` module (which is recomended instead of the `random` module to manipulate sensitive data).
 
 ## Installation
-`TODO:` release a pypi package
 
     pip install pypwdgen
 
