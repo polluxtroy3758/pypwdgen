@@ -83,7 +83,13 @@ def _validate_parameter(param: int, param_name: str) -> None:
 
     :param int param: the value of the parameter to validate
     :param str param_name: the name of the parameter to validate
+    :raises KeyError: if the parameter name does not exists
+    :raises ValueError: if the parameter is not in correct predefined range
     """
+    if param_name not in PARAMETERS.keys():
+        raise KeyError(f"The '{param_name}' parameter does not exists."
+                       f"Accepted parameter names are: {PARAMETERS.keys()}")
+
     if param < PARAMETERS[param_name]["MIN"] or param > PARAMETERS[param_name]["MAX"]:
         raise ValueError(f"The given {param_name} can't be less than {PARAMETERS[param_name]['MIN']} "
                          f"or greater than {PARAMETERS[param_name]['MAX']}.\n"
