@@ -1,6 +1,6 @@
 # pypwdgen
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/polluxtroy3758/pypwdgen/Build%20Python%20Package?style=flat-square)
+![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/polluxtroy3758/pypwdgen/Build%20Python%20Package/main?style=flat-square)
 ![PyPI](https://img.shields.io/pypi/v/pypwdgen?style=flat-square)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pypwdgen?style=flat-square)
 
