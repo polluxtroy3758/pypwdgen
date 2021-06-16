@@ -5,7 +5,7 @@ with open("README.md", 'r', encoding="utf-8") as fh:
 
 setuptools.setup(
     name="pypwdgen",
-    version="v1.0.2",
+    version="v1.0.3",
     author="polluxtroy3758",
     author_email="2147396+polluxtroy3758@users.noreply.github.com",
     description="Complex password generator",
