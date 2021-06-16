@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>pypwdgen &mdash; pypwdgen v1.0.2 documentation</title>
+  <title>pypwdgen &mdash; pypwdgen v1.0.3 documentation</title>
   
 
   
@@ -95,7 +95,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-the-cli">Using the cli</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#optional-arguments">Optional arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#exemple">Exemple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#using-in-a-script">Using in a script</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#get-only-the-password-itself">Get only the password itself</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-a-password-object-and-use-its-properties">Get a Password object and use its properties</a></li>
 </ul>
 </li>
 </ul>
@@ -171,8 +176,9 @@
             
   <div class="section" id="pypwdgen">
 <h1>pypwdgen<a class="headerlink" href="#pypwdgen" title="Permalink to this headline">¶</a></h1>
-<a class="reference external image-reference" href="https://img.shields.io/github/workflow/status/polluxtroy3758/pypwdgen/Build%20Python%20Package?style=flat-square"><img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/polluxtroy3758/pypwdgen/Build%20Python%20Package?style=flat-square" /></a>
-<a class="reference external image-reference" href="https://img.shields.io/pypi/v/pypwdgen?style=flat-square"><img alt="PyPI" src="https://img.shields.io/pypi/v/pypwdgen?style=flat-square" /></a>
+<a class="reference external image-reference" href="https://img.shields.io/github/workflow/status/polluxtroy3758/pypwdgen/Build%20Python%20Package/main?label=main%20build&amp;logo=githubactions&amp;style=flat-square"><img alt="GitHub Workflow Status (branch)" src="https://img.shields.io/github/workflow/status/polluxtroy3758/pypwdgen/Build%20Python%20Package/main?label=main%20build&amp;logo=githubactions&amp;style=flat-square" /></a>
+<a class="reference external image-reference" href="https://img.shields.io/pypi/v/pypwdgen?logo=pypi&amp;style=flat-square"><img alt="PyPI" src="https://img.shields.io/pypi/v/pypwdgen?logo=pypi&amp;style=flat-square" /></a>
+<a class="reference external image-reference" href="https://img.shields.io/pypi/pyversions/pypwdgen?logo=python&amp;style=flat-square"><img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/pypwdgen?logo=python&amp;style=flat-square" /></a>
 <p>Complex pasword generator</p>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
@@ -180,31 +186,59 @@
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">TODO:</span></code> release a pypi package</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pypwdgen</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install pypwdgen
 </pre></div>
 </div>
 </div>
 <div class="section" id="using-the-cli">
 <h2>Using the cli<a class="headerlink" href="#using-the-cli" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pypwdgen</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python3 -m pypwdgen
 </pre></div>
 </div>
 <div class="section" id="optional-arguments">
 <h3>Optional arguments<a class="headerlink" href="#optional-arguments" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">l</span><span class="p">,</span> <span class="o">--</span><span class="n">length</span><span class="p">:</span>
-    <span class="n">Length</span> <span class="n">of</span> <span class="n">the</span> <span class="n">password</span> <span class="p">(</span><span class="n">default</span><span class="p">:</span> <span class="mi">9</span><span class="p">)</span>
-<span class="o">-</span><span class="n">n</span><span class="p">,</span> <span class="o">--</span><span class="n">number</span><span class="p">:</span>
-    <span class="n">Number</span> <span class="n">of</span> <span class="n">passwords</span> <span class="n">to</span> <span class="n">generate</span> <span class="p">(</span><span class="n">default</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
-<span class="o">-</span><span class="n">c</span><span class="p">,</span> <span class="o">--</span><span class="n">complexity</span><span class="p">:</span>
-    <span class="n">Minimum</span> <span class="n">number</span> <span class="n">of</span> <span class="n">character</span> <span class="n">classes</span> <span class="n">to</span> <span class="n">use</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>-l, --length:
+    Length of the password (default: 9)
+-n, --number:
+    Number of passwords to generate (default: 1)
+-c, --complexity:
+    Minimum number of character classes to use (default: 3)
 </pre></div>
 </div>
 </div>
-<div class="section" id="exemple">
-<h3>Exemple<a class="headerlink" href="#exemple" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># generates 20 passwords of 10 characters</span>
-<span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pypwdgen</span> <span class="o">-</span><span class="n">l</span> <span class="mi">10</span> <span class="o">-</span><span class="n">n</span> <span class="mi">20</span>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># generates 20 passwords of 10 characters</span>
+python3 -m pypwdgen -l <span class="m">10</span> -n <span class="m">20</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="using-in-a-script">
+<h2>Using in a script<a class="headerlink" href="#using-in-a-script" title="Permalink to this headline">¶</a></h2>
+<p>You can easily use <code class="docutils literal notranslate"><span class="pre">pypwdgen</span></code> to generate password inside your scripts.</p>
+<div class="section" id="get-only-the-password-itself">
+<h3>Get only the password itself<a class="headerlink" href="#get-only-the-password-itself" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pypwdgen.core</span> <span class="kn">import</span> <span class="n">Password</span>
+
+<span class="n">passwd_string</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Password</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>  <span class="c1"># Please note the usage of str()</span>
+
+<span class="c1"># Print password</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My password is: </span><span class="si">{</span><span class="n">passwd_string</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-a-password-object-and-use-its-properties">
+<h3>Get a Password object and use its properties<a class="headerlink" href="#get-a-password-object-and-use-its-properties" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pypwdgen.core</span> <span class="kn">import</span> <span class="n">Password</span>
+
+<span class="n">passwd_object</span> <span class="o">=</span> <span class="n">Password</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># Print password complexity score from object attribute</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My password complexity score is: </span><span class="si">{</span><span class="n">passwd_object</span><span class="o">.</span><span class="n">complexity</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Print password string from object attribute</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My password is: </span><span class="si">{</span><span class="n">passwd_object</span><span class="o">.</span><span class="n">password</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

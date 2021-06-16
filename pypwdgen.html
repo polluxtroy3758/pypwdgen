@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>pypwdgen &mdash; pypwdgen v1.0.2 documentation</title>
+  <title>pypwdgen &mdash; pypwdgen v1.0.3 documentation</title>
   
 
   
@@ -93,7 +93,6 @@
 <li class="toctree-l1"><a class="reference internal" href="README.html">Readme</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">pypwdgen</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#module-pypwdgen.core">pypwdgen.core</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-pypwdgen.cli">pypwdgen.cli</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-pypwdgen.config">pypwdgen.config</a></li>
 </ul>
 </li>
@@ -176,13 +175,13 @@
 <dt class="sig sig-object py" id="pypwdgen.core.Password">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pypwdgen.core.</span></span><span class="sig-name descname"><span class="pre">Password</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">given_length</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">given_complexity</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypwdgen.core.Password" title="Permalink to this definition">¶</a></dt>
 <dd><p>Complex password generated from given length and complexity.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="pypwdgen.core.Password._generate_password">
-<span class="sig-name descname"><span class="pre">_generate_password</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#pypwdgen.core.Password._generate_password" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generate a password following the given parameters.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="pypwdgen.core.Password.password">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">password</span></span><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#pypwdgen.core.Password.password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generated password.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>a valid password</p>
+<dd class="field-odd"><p>the generated password</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>str</p>
@@ -204,123 +203,6 @@
 </dl>
 </dd></dl>
 
-<dl class="py property">
-<dt class="sig sig-object py" id="pypwdgen.core.Password.password">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">password</span></span><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#pypwdgen.core.Password.password" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generated password.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>the generated password</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pypwdgen.core._calculate_complexity">
-<span class="sig-prename descclassname"><span class="pre">pypwdgen.core.</span></span><span class="sig-name descname"><span class="pre">_calculate_complexity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#pypwdgen.core._calculate_complexity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate a ‘complexity score’ based on the numbers of different character classes in the password.</p>
-<p>Presence of the characters types a tested :</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>LOWERCASE</p></li>
-<li><p>UPPERCASE</p></li>
-<li><p>DIGITS</p></li>
-<li><p>PUNCTUATION</p></li>
-</ul>
-</div></blockquote>
-<p>For each character class, checks the presence of at least one character in the password, and store the result as
-a boolean.</p>
-<p>The complexity score is the sum of these booleans (True = 1 and False = 0).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>password</strong> (<em>str</em>) – the password from which to calculate the complexity</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the complexity score</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>int</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pypwdgen.core._validate_parameter">
-<span class="sig-prename descclassname"><span class="pre">pypwdgen.core.</span></span><span class="sig-name descname"><span class="pre">_validate_parameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#pypwdgen.core._validate_parameter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks if the given parameters are in a valid range.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>param</strong> (<em>int</em>) – the value of the parameter to validate</p></li>
-<li><p><strong>param_name</strong> (<em>str</em>) – the name of the parameter to validate</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
-<div class="section" id="module-pypwdgen.cli">
-<span id="pypwdgen-cli"></span><h2>pypwdgen.cli<a class="headerlink" href="#module-pypwdgen.cli" title="Permalink to this headline">¶</a></h2>
-<p>Password generator</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="pypwdgen.cli._generate_password_list">
-<span class="sig-prename descclassname"><span class="pre">pypwdgen.cli.</span></span><span class="sig-name descname"><span class="pre">_generate_password_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">given_number</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">given_length</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">given_complexity</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pypwdgen.core.Password" title="pypwdgen.core.Password"><span class="pre">pypwdgen.core.Password</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#pypwdgen.cli._generate_password_list" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generate a given number of passwords.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>given_number</strong> (<em>int</em>) – the number of passwords to generate</p></li>
-<li><p><strong>given_length</strong> (<em>int</em>) – the length of passwords to generate</p></li>
-<li><p><strong>given_complexity</strong> (<em>int</em>) – the complexity of passwords to generate</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the generated passwords</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>PassList</p>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><p><strong>ValuError</strong> – if any parameter is not valid</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pypwdgen.cli._parse_arguments">
-<span class="sig-prename descclassname"><span class="pre">pypwdgen.cli.</span></span><span class="sig-name descname"><span class="pre">_parse_arguments</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#pypwdgen.cli._parse_arguments" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parse the cli arguments with argparse</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>a dictionnary containing the arguments</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pypwdgen.cli._print_passwords">
-<span class="sig-prename descclassname"><span class="pre">pypwdgen.cli.</span></span><span class="sig-name descname"><span class="pre">_print_passwords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password_list</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pypwdgen.core.Password" title="pypwdgen.core.Password"><span class="pre">pypwdgen.core.Password</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#pypwdgen.cli._print_passwords" title="Permalink to this definition">¶</a></dt>
-<dd><p>Prints the generated password(s).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>password_list</strong> (<em>Passlist</em>) – the list of password to be printed</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pypwdgen.cli.main">
-<span class="sig-prename descclassname"><span class="pre">pypwdgen.cli.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#pypwdgen.cli.main" title="Permalink to this definition">¶</a></dt>
-<dd><p>Main function</p>
-<p>Called when the module is run directly.</p>
 </dd></dl>
 
 </div>
@@ -328,39 +210,39 @@ a boolean.</p>
 <span id="pypwdgen-config"></span><h2>pypwdgen.config<a class="headerlink" href="#module-pypwdgen.config" title="Permalink to this headline">¶</a></h2>
 <p>Contants used by pypwdgen</p>
 <dl class="py data">
-<dt class="sig sig-object py" id="pypwdgen.config.ALL_CHARACTERS">
-<span class="sig-prename descclassname"><span class="pre">pypwdgen.config.</span></span><span class="sig-name descname"><span class="pre">ALL_CHARACTERS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,;:!?&amp;-_&#64;=+*/%&lt;&gt;#'</span></em><a class="headerlink" href="#pypwdgen.config.ALL_CHARACTERS" title="Permalink to this definition">¶</a></dt>
-<dd><p>Full set of characters that can be used in generated passwords</p>
+<dt class="sig sig-object py" id="pypwdgen.config.LOWERCASE">
+<span class="sig-prename descclassname"><span class="pre">pypwdgen.config.</span></span><span class="sig-name descname"><span class="pre">LOWERCASE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['a',</span> <span class="pre">'b',</span> <span class="pre">'c',</span> <span class="pre">'d',</span> <span class="pre">'e',</span> <span class="pre">'f',</span> <span class="pre">'g',</span> <span class="pre">'h',</span> <span class="pre">'i',</span> <span class="pre">'j',</span> <span class="pre">'k',</span> <span class="pre">'l',</span> <span class="pre">'m',</span> <span class="pre">'n',</span> <span class="pre">'o',</span> <span class="pre">'p',</span> <span class="pre">'q',</span> <span class="pre">'r',</span> <span class="pre">'s',</span> <span class="pre">'t',</span> <span class="pre">'u',</span> <span class="pre">'v',</span> <span class="pre">'w',</span> <span class="pre">'x',</span> <span class="pre">'y',</span> <span class="pre">'z']</span></em><a class="headerlink" href="#pypwdgen.config.LOWERCASE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lowercase latin letters to build full set of characters</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypwdgen.config.UPPERCASE">
+<span class="sig-prename descclassname"><span class="pre">pypwdgen.config.</span></span><span class="sig-name descname"><span class="pre">UPPERCASE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['A',</span> <span class="pre">'B',</span> <span class="pre">'C',</span> <span class="pre">'D',</span> <span class="pre">'E',</span> <span class="pre">'F',</span> <span class="pre">'G',</span> <span class="pre">'H',</span> <span class="pre">'I',</span> <span class="pre">'J',</span> <span class="pre">'K',</span> <span class="pre">'L',</span> <span class="pre">'M',</span> <span class="pre">'N',</span> <span class="pre">'O',</span> <span class="pre">'P',</span> <span class="pre">'Q',</span> <span class="pre">'R',</span> <span class="pre">'S',</span> <span class="pre">'T',</span> <span class="pre">'U',</span> <span class="pre">'V',</span> <span class="pre">'W',</span> <span class="pre">'X',</span> <span class="pre">'Y',</span> <span class="pre">'Z']</span></em><a class="headerlink" href="#pypwdgen.config.UPPERCASE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uppercase latin letters to build full set of characters</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="pypwdgen.config.DIGITS">
-<span class="sig-prename descclassname"><span class="pre">pypwdgen.config.</span></span><span class="sig-name descname"><span class="pre">DIGITS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'0123456789'</span></em><a class="headerlink" href="#pypwdgen.config.DIGITS" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pypwdgen.config.</span></span><span class="sig-name descname"><span class="pre">DIGITS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['0',</span> <span class="pre">'1',</span> <span class="pre">'2',</span> <span class="pre">'3',</span> <span class="pre">'4',</span> <span class="pre">'5',</span> <span class="pre">'6',</span> <span class="pre">'7',</span> <span class="pre">'8',</span> <span class="pre">'9']</span></em><a class="headerlink" href="#pypwdgen.config.DIGITS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Digits to build full set of characters</p>
 </dd></dl>
 
 <dl class="py data">
-<dt class="sig sig-object py" id="pypwdgen.config.LOWERCASE">
-<span class="sig-prename descclassname"><span class="pre">pypwdgen.config.</span></span><span class="sig-name descname"><span class="pre">LOWERCASE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'abcdefghijklmnopqrstuvwxyz'</span></em><a class="headerlink" href="#pypwdgen.config.LOWERCASE" title="Permalink to this definition">¶</a></dt>
-<dd><p>Lowercase latin letters to build full set of characters</p>
+<dt class="sig sig-object py" id="pypwdgen.config.PUNCTUATION">
+<span class="sig-prename descclassname"><span class="pre">pypwdgen.config.</span></span><span class="sig-name descname"><span class="pre">PUNCTUATION</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['.',</span> <span class="pre">',',</span> <span class="pre">';',</span> <span class="pre">':',</span> <span class="pre">'!',</span> <span class="pre">'?',</span> <span class="pre">'&amp;',</span> <span class="pre">'-',</span> <span class="pre">'_',</span> <span class="pre">'&#64;',</span> <span class="pre">'=',</span> <span class="pre">'+',</span> <span class="pre">'*',</span> <span class="pre">'/',</span> <span class="pre">'%',</span> <span class="pre">'&lt;',</span> <span class="pre">'&gt;',</span> <span class="pre">'#']</span></em><a class="headerlink" href="#pypwdgen.config.PUNCTUATION" title="Permalink to this definition">¶</a></dt>
+<dd><p>Punctuation marks to build full set of characters</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypwdgen.config.ALL_CHARACTERS">
+<span class="sig-prename descclassname"><span class="pre">pypwdgen.config.</span></span><span class="sig-name descname"><span class="pre">ALL_CHARACTERS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['a',</span> <span class="pre">'b',</span> <span class="pre">'c',</span> <span class="pre">'d',</span> <span class="pre">'e',</span> <span class="pre">'f',</span> <span class="pre">'g',</span> <span class="pre">'h',</span> <span class="pre">'i',</span> <span class="pre">'j',</span> <span class="pre">'k',</span> <span class="pre">'l',</span> <span class="pre">'m',</span> <span class="pre">'n',</span> <span class="pre">'o',</span> <span class="pre">'p',</span> <span class="pre">'q',</span> <span class="pre">'r',</span> <span class="pre">'s',</span> <span class="pre">'t',</span> <span class="pre">'u',</span> <span class="pre">'v',</span> <span class="pre">'w',</span> <span class="pre">'x',</span> <span class="pre">'y',</span> <span class="pre">'z',</span> <span class="pre">'A',</span> <span class="pre">'B',</span> <span class="pre">'C',</span> <span class="pre">'D',</span> <span class="pre">'E',</span> <span class="pre">'F',</span> <span class="pre">'G',</span> <span class="pre">'H',</span> <span class="pre">'I',</span> <span class="pre">'J',</span> <span class="pre">'K',</span> <span class="pre">'L',</span> <span class="pre">'M',</span> <span class="pre">'N',</span> <span class="pre">'O',</span> <span class="pre">'P',</span> <span class="pre">'Q',</span> <span class="pre">'R',</span> <span class="pre">'S',</span> <span class="pre">'T',</span> <span class="pre">'U',</span> <span class="pre">'V',</span> <span class="pre">'W',</span> <span class="pre">'X',</span> <span class="pre">'Y',</span> <span class="pre">'Z',</span> <span class="pre">'0',</span> <span class="pre">'1',</span> <span class="pre">'2',</span> <span class="pre">'3',</span> <span class="pre">'4',</span> <span class="pre">'5',</span> <span class="pre">'6',</span> <span class="pre">'7',</span> <span class="pre">'8',</span> <span class="pre">'9',</span> <span class="pre">'.',</span> <span class="pre">',',</span> <span class="pre">';',</span> <span class="pre">':',</span> <span class="pre">'!',</span> <span class="pre">'?',</span> <span class="pre">'&amp;',</span> <span class="pre">'-',</span> <span class="pre">'_',</span> <span class="pre">'&#64;',</span> <span class="pre">'=',</span> <span class="pre">'+',</span> <span class="pre">'*',</span> <span class="pre">'/',</span> <span class="pre">'%',</span> <span class="pre">'&lt;',</span> <span class="pre">'&gt;',</span> <span class="pre">'#']</span></em><a class="headerlink" href="#pypwdgen.config.ALL_CHARACTERS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Full set of characters that can be used in generated passwords</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="pypwdgen.config.PARAMETERS">
 <span class="sig-prename descclassname"><span class="pre">pypwdgen.config.</span></span><span class="sig-name descname"><span class="pre">PARAMETERS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{'complexity':</span> <span class="pre">{'DEFAULT':</span> <span class="pre">3,</span> <span class="pre">'MAX':</span> <span class="pre">4,</span> <span class="pre">'MIN':</span> <span class="pre">3},</span> <span class="pre">'length':</span> <span class="pre">{'DEFAULT':</span> <span class="pre">9,</span> <span class="pre">'MAX':</span> <span class="pre">50,</span> <span class="pre">'MIN':</span> <span class="pre">9},</span> <span class="pre">'number':</span> <span class="pre">{'DEFAULT':</span> <span class="pre">1,</span> <span class="pre">'MAX':</span> <span class="pre">100,</span> <span class="pre">'MIN':</span> <span class="pre">1}}</span></em><a class="headerlink" href="#pypwdgen.config.PARAMETERS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Valid ranges and default parameters for password generation</p>
-</dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="pypwdgen.config.PUNCTUATION">
-<span class="sig-prename descclassname"><span class="pre">pypwdgen.config.</span></span><span class="sig-name descname"><span class="pre">PUNCTUATION</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'.,;:!?&amp;-_&#64;=+*/%&lt;&gt;#'</span></em><a class="headerlink" href="#pypwdgen.config.PUNCTUATION" title="Permalink to this definition">¶</a></dt>
-<dd><p>Punctuation marks to build full set of characters</p>
-</dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="pypwdgen.config.UPPERCASE">
-<span class="sig-prename descclassname"><span class="pre">pypwdgen.config.</span></span><span class="sig-name descname"><span class="pre">UPPERCASE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'ABCDEFGHIJKLMNOPQRSTUVWXYZ'</span></em><a class="headerlink" href="#pypwdgen.config.UPPERCASE" title="Permalink to this definition">¶</a></dt>
-<dd><p>Uppercase latin letters to build full set of characters</p>
 </dd></dl>
 
 </div>
