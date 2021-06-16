@@ -59,4 +59,8 @@ html_theme = 'sphinx_rtd_theme'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+# Allow MarkDown to be included as well as ReST files
 source_suffix = ['.rst', '.md']
+
+# Do not sort alphabetically
+autodoc_member_order = 'bysource'
