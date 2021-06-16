@@ -33,7 +33,7 @@ class Password:
         self._complexity = -1
         self._password = self._generate_password()
 
-        # Delete characters as the are not meant to be stored
+        # Delete characters as they are not meant to be stored
         del self._characters
 
     def __str__(self):
