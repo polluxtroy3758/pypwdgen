@@ -5,13 +5,13 @@
 
 from string import ascii_lowercase, ascii_uppercase, digits
 
-LOWERCASE = ascii_lowercase  #: Lowercase latin letters to build full set of characters
-UPPERCASE = ascii_uppercase  #: Uppercase latin letters to build full set of characters
-DIGITS = digits  #: Digits to build full set of characters
-PUNCTUATION = ".,;:!?&-_@=+*/%<>#"  #: Punctuation marks to build full set of characters
+LOWERCASE = list(ascii_lowercase)  #: Lowercase latin letters to build full set of characters
+UPPERCASE = list(ascii_uppercase)  #: Uppercase latin letters to build full set of characters
+DIGITS = list(digits)  #: Digits to build full set of characters
+PUNCTUATION = list(".,;:!?&-_@=+*/%<>#")  #: Punctuation marks to build full set of characters
 
 #: Full set of characters that can be used in generated passwords
-ALL_CHARACTERS = f"{LOWERCASE}{UPPERCASE}{DIGITS}{PUNCTUATION}"
+ALL_CHARACTERS = LOWERCASE + UPPERCASE + DIGITS + PUNCTUATION
 
 #: Valid ranges and default parameters for password generation
 PARAMETERS = {
