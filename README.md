@@ -10,20 +10,53 @@ Complex pasword generator
 Python 3.6 minimum is required to use the `secrets` module (which is recomended instead of the `random` module to manipulate sensitive data).
 
 ## Installation
-
-    pip install pypwdgen
+```shell
+pip install pypwdgen
+```
 
 ## Using the cli
-    python3 -m pypwdgen 
+```shell
+python3 -m pypwdgen 
+```
 
 ### Optional arguments
-    -l, --length:
-        Length of the password (default: 9)
-    -n, --number:
-        Number of passwords to generate (default: 1)
-    -c, --complexity:
-        Minimum number of character classes to use
+```text
+-l, --length:
+    Length of the password (default: 9)
+-n, --number:
+    Number of passwords to generate (default: 1)
+-c, --complexity:
+    Minimum number of character classes to use (default: 3)
+```
 
-### Exemple
-    # generates 20 passwords of 10 characters
-    python3 -m pypwdgen -l 10 -n 20
+### Example
+```shell
+# generates 20 passwords of 10 characters
+python3 -m pypwdgen -l 10 -n 20
+```
+
+## Using in a script
+You can easily use `pypwdgen` to generate password inside your scripts.
+
+### Get only the password itself
+```python
+from pypwdgen.core import Password
+
+passwd_string = str(Password(20, 4))  # Please note the usage of str()
+
+# Print password
+print(f"My password is: {passwd_string}")
+```
+
+### Get a Password object and use its properties
+```python
+from pypwdgen.core import Password
+
+passwd_object = Password(20, 4)
+
+# Print password complexity score from object attribute
+print(f"My password complexity score is: {passwd_object.complexity}")
+
+# Print password string from object attribute
+print(f"My password is: {passwd_object.password}")
+```
