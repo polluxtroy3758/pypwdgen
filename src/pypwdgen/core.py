@@ -60,6 +60,15 @@ class Password:
         """
         return self._complexity
 
+    @property
+    def length(self) -> int:
+        """Length of the generated password
+
+        :return: the length of the generated password
+        :rtype: int
+        """
+        return len(self._password)
+
     def _generate_password(self) -> str:
         """Generate a password following the given parameters.
 
