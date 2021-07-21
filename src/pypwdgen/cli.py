@@ -23,7 +23,7 @@ def _generate_password_list(
     :param int given_complexity: the complexity of passwords to generate
     :return: the generated passwords
     :rtype: PassList
-    :raises ValuError: if any parameter is not valid
+    :raises ValueError: if any parameter is not valid
     """
     _validate_parameter(given_number, "number")
     password_list = []
@@ -44,7 +44,7 @@ def _print_passwords(password_list: PassList) -> None:
 def _parse_arguments() -> dict:
     """Parse the cli arguments with argparse
 
-    :return: a dictionnary containing the arguments
+    :return: a dictionary containing the arguments
     :rtype: dict
     """
     import argparse
