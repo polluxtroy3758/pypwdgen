@@ -102,7 +102,7 @@ def _validate_parameter(param: int, param_name: str) -> None:
     if param < PARAMETERS[param_name]["MIN"] or param > PARAMETERS[param_name]["MAX"]:
         raise ValueError(f"The given {param_name} can't be less than {PARAMETERS[param_name]['MIN']} "
                          f"or greater than {PARAMETERS[param_name]['MAX']}.\n"
-                         f"Given length: {param}")
+                         f"Given {param_name}: {param}")
 
 
 def _calculate_complexity(password: str) -> int:
